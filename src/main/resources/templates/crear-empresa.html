@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" class="text-danger" href="https://static.thenounproject.com/png/1281-200.png">
+    <title>Crear Empresa</title>
+</head>
+<body>
+
+<div class="m-3">
+    <h1 class="display-2">
+        Inferfaz para crear Empresa
+    </h1>
+</div>
+
+<div class="m-5 container-fluid">
+    <div class="row">
+        <div class="col-12 col-m-6 col-lg-10 d-flex text-black justify-content-center">
+            <form th:action="@{/empresa}" class="text-black" method="post">
+
+                <label class="form-label" for="nombre">Nombre</label>
+                <input class="form-control" type="text" id="nombre" required th:field="${empresa.nombre}">
+
+                <label class="form-label" for="direccion">Direccion</label>
+                <input class="form-control" type="text" id="direccion" required th:field="${empresa.direccion}">
+
+                <label class="form-label" for="telefono">Telefono</label>
+                <input class="form-control" type="number" id="telefono" required th:field="${empresa.telefono}">
+
+                <label class="form-label" for="nit">NIT</label>
+                <input class="form-control" type="text" id="nit" required th:field="${empresa.nit}">
+
+                <div class="m-5 d-flex justify-content-center">
+                    <input class="btn btn-success" type="submit" value="Agregar Empresa">
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>

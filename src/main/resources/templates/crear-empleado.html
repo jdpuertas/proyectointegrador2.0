@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" class="text-danger" href="https://static.thenounproject.com/png/1281-200.png">
+    <title>Crear Empleado</title>
+</head>
+<body>
+
+<div class="m-3">
+    <h1 class="display-2 text-black">
+        Inferfaz para crear Empleado
+    </h1>
+</div>
+
+<div class="m-5 container-fluid">
+    <div class="row">
+        <div class="col-12 col-m-6 col-lg-10 gap-3 d-flex justify-content-center">
+            <form th:action="@{/empleado}" method="post">
+
+
+                <label class="form-label text-black" for="nombre">Nombre</label>
+                <input class="form-control" type="text" id="nombre" th:field="${empleado.nombre}" required>
+
+                <label class="form-label text-black" for="mail">mail</label>
+                <input class="form-control" type="text" id="mail" th:field="${empleado.mail}" required>
+
+
+                <label for="idEmpresa" class="text-black"> Empresa </label>
+                <select class="form-control" id="idEmpresa" required="required" readonly name="idEmpresa">
+                    <option th:each="empresa : ${empresaList}" th:text="${empresa.nombre}" th:value="${empresa.id}"></option>
+                    <!--        <option th:text="${#httpServletRequest.remoteUser}" th:value="${idEmpleado}"></option>
+                        -->
+                </select>
+
+                <div class="m-2">
+                    <label for="rol" class="text-black">rol</label>
+                    <select name="rol" id="rol" required>
+                        <option value="VISITANTE">VISITANTE</option>
+                        <option value="ADMIN">ADMIN</option>
+                        <option value="CLIENT">CLIENT</option>
+                    </select>
+                </div>
+
+                <div class="m-5 d-flex justify-content-center">
+                    <input class="btn btn-success" type="submit" value="Agregar Empleado">
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" class="text-danger" href="https://static.thenounproject.com/png/1281-200.png">
+    <title>Empleado</title>
+</head>
+
+<body>
+
+<h1>Interfaz de Empleado</h1>
+<nav class="d-flex justify-content-end">
+    <ul class="d-flex list-unstyled">
+        <li><a class="text-decoration-none mx-2" href="/">Inicio</a></li>
+        <li><a class="text-decoration-none mx-2" href="/empresa">Empresa</a></li>
+        <li><a class="text-decoration-none mx-2" href="/empleado">Empleado</a></li>
+    </ul>
+</nav>
+<main>
+    <div class="m-3">
+        <table class="table table-striped">
+            <tr class="text-center">
+                <th class="text-warning">Nombre</th>
+                <th class="text-warning">Email</th>
+                <th class="text-warning">Empresa</th>
+                <th class="text-warning">Rol</th>
+                <th class="text-warning">Id</th>
+                <th class="text-warning">Ver perfil</th>
+                <th class="text-warning" colspan="2">Actions</th>
+            </tr>
+            <tr  class="text-center" th:each="empleado : ${empleado}">
+                <td class="text-black" th:text="${empleado.nombre}"></td>
+                <td class="text-black" th:text="${empleado.mail}"></td>
+                <td class="text-black" th:text="${empleado.idEmpresa.nombre}"></td>
+                <td class="text-black" th:text="${empleado.rol}"></td>
+                <td class="text-black" th:text="${empleado.id}"></td>
+                <td><a th:href="@{/empleado/editar/{id} (id = ${empleado.id})}"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                <td><a th:href="@{/empleado/eliminar/{id} (id = ${empleado.id})}"><i class="fa-solid fa-trash text-danger"></i></a></td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="width: 100%" class="m-3 d-flex justify-content-center">
+        <a href="/crear-empleado" class="btn btn-success">Agregar un nuevo Empleado</a>
+    </div>
+
+</main>
+<footer class="blockquote-footer">
+    <p class="text-black">Creado por Etudiantes ITM</p>
+    <p class="text-black">Equipo Proyecto integrador</p>
+    <p class="text-black"> 2022</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/2a04d2021f.js" crossorigin="anonymous"></script>
+</body>
+</html>
