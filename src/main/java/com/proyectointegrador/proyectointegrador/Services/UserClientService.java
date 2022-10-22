@@ -32,7 +32,7 @@ public class UserClientService {
         if(userClient==null) {
             String name = (String) userData.get("nickname");
             String image = (String) userData.get("picture");
-            String auth0Id = (String) userData.get("sub");
+            String auth0Id = (String) userData.get("sub"); //es un ID
             Enum_Rol rol = (Enum_Rol) userData.get("rol");
 
             UserClient newUserClient = new UserClient(email = email, image = image, auth0Id = auth0Id, rol=rol);
